@@ -29,8 +29,9 @@ Public Class oDeck
 
         'Create a random number(card) generator. // intRandomCard is = a random number between 0(1) 
         'and the rest of the cards in the list -1.
-        Dim Generator As System.Random = New System.Random()
-        intRandomCard = Generator.Next(0, AryCards.Count - 1)
+        '3/1/15 ACH: Changed random number variable to Static to keep its place.  Removed "-1" from count in Next() because max value is never returned. 
+        Static Dim Generator As System.Random = New System.Random()
+        intRandomCard = Generator.Next(0, AryCards.Count)
 
         'Pull a card from the deck then remove it from the arraylist to insure we don't have duplicate.
         ODeltCard = AryCards.Item(intRandomCard)
